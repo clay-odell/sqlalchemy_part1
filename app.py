@@ -41,6 +41,22 @@ def show_user(user_id):
     user = User.query.get_or_404(user_id)
     return render_template('/user_homepage.html', user=user)
 
+@app.route('/<user_id>/edit_user_form', methods=['GET','POST'])
+def edit_user(user_id):
+    if request.method == 'POST':
+        user = User.query.get(user_id)
+        user.first_name = request.form['first-name']
+        user.last_name = request.form['last-name']
+        user.image_URL = request.form['img-url']
+        db.session.commit()
+        return redirect('/')
+
+    else:
+        user = User.query.get(user_id)
+        return render_template('/edit_user_form.html', user=user)
+
+
+
 
 
 

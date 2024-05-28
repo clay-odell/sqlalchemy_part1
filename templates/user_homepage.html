@@ -7,6 +7,12 @@
 <div>
     <img src="{{user.image_URL}}">
 </div>
+<form action="/{{user.id}}/edit_user_form" method="GET">
+    <Button>EDIT USER</Button>
+</form>
+<form action="/">
+    <button>BACK</button>
+</form>
 {% endblock %}
 
 
