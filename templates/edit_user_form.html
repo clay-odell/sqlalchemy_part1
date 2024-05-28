@@ -11,4 +11,7 @@ Edit User Form
     <p>User Image URL: <br><input name="img-url" required></p>
     <p><input type="submit" value="EDIT USER"></p>
 </form>
+<form action="/{{user.id}}/delete" method="GET">
+    <button>DELETE USER</button>
+</form>
 {% endblock %}

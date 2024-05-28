@@ -55,6 +55,18 @@ def edit_user(user_id):
         user = User.query.get(user_id)
         return render_template('/edit_user_form.html', user=user)
 
+@app.route('/<user_id>/delete', methods=['GET','POST'])
+def delete_user(user_id):
+    if request.method == 'POST':
+        user = User.query.get(user_id)
+        db.session.delete(user)
+        db.session.commit()
+        return redirect('/')
+    
+    else:
+        user = User.query.get(user_id)
+        return render_template('/delete_user.html', user=user)
+    
 
 
 
